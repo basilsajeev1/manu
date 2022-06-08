@@ -36,6 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
 		crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
@@ -465,7 +466,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3>Contact me</h3>
 				</div>
 				<div class="contact-w3ls">
-					<form action="#" method="post">
+					<form id="submit-form" action="" >
 						<div class="col-md-7 col-sm-7 contact-left agileits-w3layouts">
 							<input type="text" name="First Name" placeholder="Name" required="">
 							<input type="email" class="email" name="Email" placeholder="Email" required="">
@@ -568,17 +569,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
 		
 
-/*
-				
-	var defaults = {
+/*var defaults = {
 	
-				containerID: 'toTop', // fading element id
+containerID: 'toTop', // fading element id
 
-					containerHoverID: 'toTopHover', // fading element hover id
+containerHoverID: 'toTopHover', // fading element hover id
 
-					scrollSpeed: 1200,
+scrollSpeed: 1200,
 				
-	easingType: 'linear' 
+easingType: 'linear' 
 					
 };
 				
@@ -592,7 +591,25 @@ $().UItoTop({ easingType: 'easeOutQuart' });
 </script>
 
 	</div>
-	
+	<script>
+			$("#submit-form").submit((e)=>{
+				e.preventDefault()
+				$.ajax({
+					url:"https://script.google.com/macros/s/AKfycbzricfOJwaX89bu6Z6H05sawAwkO2WCzE3Ac_0x9CShevwqF-EH_Ah2hjPeRzTcCkNR/exec",
+					data:$("#submit-form").serialize(),
+					method:"post",
+					success:function (response){
+						alert("Form submitted successfully")
+						window.location.reload()
+						//window.location.href="https://google.com"
+					},
+					error:function (err){
+						alert("Something Error")
+		
+					}
+				})
+			})
+		</script>
 </body>
 
 </html>
